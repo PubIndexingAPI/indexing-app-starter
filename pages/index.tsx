@@ -8,21 +8,22 @@ import Footer from '@/components/Footer';
 
 const Home: NextPage = () => {
 
-  const apiKey = 'your_api_key';
-
   return (
     <>
       <Head>
         <title>Indexing App Starter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Indexing App Starter" />
+        <meta name="robots" content="noindex,nofollow" />
+        <link rel="icon" href="/favicon.svg" />
       </Head>
       <main className={styles.main}>
         
-      <h1>Indexing App Starter</h1>
+        <h1>Indexing App Starter</h1>
 
-      <p>Enter an RSS feed URL and the interval (in seconds) to check the feed.</p>
+        <p>Enter an RSS feed URL and the check interval.</p>
 
-      <IndexingForm apiKey={apiKey} />
+        <IndexingForm />
 
       </main>
 

@@ -1,11 +1,11 @@
 import React, { useState, useRef } from 'react';
 import styles from '@/styles/Form.module.css';
 
-interface IndexingFormProps {
-  apiKey: string;
-}
+interface IndexingFormProps {}
 
-const IndexingForm: React.FC<IndexingFormProps> = ({ apiKey }) => {
+const IndexingForm: React.FC = () => {
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
+
   const [feedUrl, setFeedUrl] = useState('');
   const [interval, setInterval] = useState(60);
   const [output, setOutput] = useState('');
@@ -30,7 +30,7 @@ const IndexingForm: React.FC<IndexingFormProps> = ({ apiKey }) => {
         const timestamp = new Date().toLocaleString();
 
         setOutput(
-          `${timestamp} - Size: ${data.size ?? 'N/A'}, Size Changed: ${data.sizeChanged ?? 'N/A'}, WebSub Ping: ${data.webSubPingSuccess ?? 'N/A'}, Google Ping: ${data.googlePingSuccess ?? 'N/A'}\n${output}`
+          `${timestamp} - Size: ${data.size ?? 'n/a'}, Size Changed: ${data.sizeChanged ?? 'n/a'}, WebSub Ping: ${data.webSubPingSuccess ?? 'n/a'}, Google Ping: ${data.googlePingSuccess ?? 'n/a'}\n${output}`
         );
 
         if (data.sizeChanged) {
@@ -96,11 +96,11 @@ const IndexingForm: React.FC<IndexingFormProps> = ({ apiKey }) => {
       </div>
       {formSubmitted && (
         <>
-          <div>
+          <div className={styles.response}>
             <p>Response:</p>
             <pre className={styles.output}>{output}</pre>
           </div>
-          <div>
+          <div className={styles.ping}>
             <p className={styles.inline}>Last ping:</p>
             <pre className={styles.inlinePre}>{lastPing ? lastPing : 'None'}</pre>
           </div>
@@ -108,7 +108,7 @@ const IndexingForm: React.FC<IndexingFormProps> = ({ apiKey }) => {
             {(() => {
               const debugUrl = `https://pubsubhubbub.appspot.com/topic-details?hub.url=${encodeURIComponent(feedUrl)}`;
               return (
-                <p>
+                <p className={styles.debug}>
                   <a href={debugUrl} target="_blank" rel="noopener noreferrer">
                     Debug
                   </a>
