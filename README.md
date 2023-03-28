@@ -4,7 +4,7 @@ This is a simple indexing app starter that utilizes the Pub Index API. Follow th
 
 ## Prerequisites
 
-- You need an API key to use this service. If you do not already have one please visit the API dashboard https://app.pubindexapi.com/
+- [API Key](https://docs.pubindexapi.com/docs/api-keys). If you do not already have one please visit the API dashboard https://app.pubindexapi.com/.
 
 - pnpm, Yarn or npm, which is included with Node.js.
 
