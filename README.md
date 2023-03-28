@@ -4,7 +4,9 @@ This is a simple indexing app starter that utilizes the Pub Index API. Follow th
 
 ## Prerequisites
 
-Make sure you have either PNPM or Yarn installed on your system. You can also use npm, which is included with Node.js.
+- You need an API key to use this service. If you do not already have one please visit the API dashboard https://app.pubindexapi.com/
+
+- pnpm, Yarn or npm, which is included with Node.js.
 
 ## Installation
 
@@ -42,9 +44,9 @@ npm install
 
 ## Setting up the environment variable
 
-Add API key as an environment variable 'NEXT_PUBLIC_API_KEY'.
+To safely store your API key, add your PubIndexAPI API key as an environment variable `NEXT_PUBLIC_API_KEY`.
 
-Locally, create a .env.local file and add:
+Locally, create a `.env.local` file and add:
 
 ```
 NEXT_PUBLIC_API_KEY=YOUR-API-KEY
@@ -52,7 +54,7 @@ NEXT_PUBLIC_API_KEY=YOUR-API-KEY
 
 Replace YOUR-API-KEY with your actual API key.
 
-On the server/live environment, add the NEXT_PUBLIC_API_KEY environment variable with the value as your API key.
+On the server/live environment, add the `NEXT_PUBLIC_API_KEY` environment variable with the value as your API key.
 
 ## Running the app
 
