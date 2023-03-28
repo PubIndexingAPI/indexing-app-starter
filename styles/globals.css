@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  color-scheme: dark light;
+  --flowSpace: 25px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  padding: var(--flowSpace);
+  font: 400 normal 18px/1.5 -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,sans-serif;
+}
+
+a {
+  color: inherit;
+}
+
+form {
+  display: flex;
+  flex-direction: row;
+  gap: var(--flowSpace);
+  width: 373px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+/* Form column on mobile */
+@media screen and (max-width: 600px) {
+  form {
+    flex-direction: column;
+    width: 100%;
+    padding: 5px;
+  }
+}
+
+button {
+  padding: 3px 10px;
+  margin-right: 12px;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+
+input {
+  padding: 4px;
+}
+
+footer {
+  position: fixed;
+  bottom: var(--flowSpace);
+  font-size: smaller;
+  padding: 1vw;
+}
+
+/* Make footer position: inherit if screeheight is below 600px */
+@media screen and (max-height: 700px) {
+  footer {
+    position: inherit;
+    margin-top: 100px;
+  }
+}
