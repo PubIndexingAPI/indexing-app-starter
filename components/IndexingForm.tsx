@@ -19,20 +19,20 @@ const IndexingForm: React.FC = () => {
 
   const checkRssFeed = async (interval: number) => {
     if (stopFetchingRef.current) return;
-
+  
     const api_url = `/api/rss?feed=${encodeURIComponent(feedUrl)}&apiKey=${encodeURIComponent(apiKey)}`;
-
+  
     try {
       const response = await fetch(api_url);
-
+  
       if (response.ok) {
         const data = await response.json();
         const timestamp = new Date().toLocaleString();
-
+  
         setOutput(
           `${timestamp} - Size: ${data.size ?? 'n/a'}, Size Changed: ${data.sizeChanged ?? 'n/a'}, WebSub Ping: ${data.webSubPingSuccess ?? 'n/a'}, Google Ping: ${data.googlePingSuccess ?? 'n/a'}\n${output}`
         );
-
+  
         if (data.sizeChanged) {
           setLastPing(timestamp);
         }
@@ -40,13 +40,17 @@ const IndexingForm: React.FC = () => {
         const text = await response.text();
         setOutput(`Error: ${response.status} - ${text}\n${output}`);
       }
-    } catch (error) {
-      setOutput(`Error: ${error.message}\n${output}`);
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        setOutput(`Error: ${error.message}\n${output}`);
+      } else {
+        setOutput(`Error: ${String(error)}\n${output}`);
+      }
     }
-
+  
     const id = setTimeout(() => checkRssFeed(interval), interval * 1000);
     setTimeoutId(id);
-  };
+  };  
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
