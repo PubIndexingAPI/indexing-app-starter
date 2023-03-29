@@ -80,4 +80,4 @@ npm run dev
 
 The app as it is currently set up uses the `api/rss` endpoint, however you can customise this or any other part of the code to your requirements.
 
-For more information, see the Pub Index API documentation at https://docs.pubindexapi.com/docs/.
+For more information, see the Pub Index API documentation at https://docs.pubindexapi.com/docs/indexing-app-starter.
