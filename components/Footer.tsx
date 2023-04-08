@@ -1,4 +1,3 @@
-// Create a default footer component using TypeScript/Next.js
 // Path: components\Footer.tsx
 
 export default function Footer() {
